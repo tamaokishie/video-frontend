@@ -13,6 +13,7 @@ function App() {
   }, []);
 
   const loadVideos = async () => {
+    console.log("API_URL:", API_URL); // ★ ここを追加
     try {
       const response = await fetch(API_URL, {
         credentials: 'include',
