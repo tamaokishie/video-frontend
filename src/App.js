@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 
 const PLAYLIST_ID = process.env.REACT_APP_PLAYLIST_ID;
-const API_URL = `${process.env.REACT_APP_API_BASE}/youtube/private-videos?playlistId=${PLAYLIST_ID}`;
+const API_URL = `${process.env.REACT_APP_API_URL}/youtube/private-videos?playlistId=${PLAYLIST_ID}`;
 
 function App() {
   const [videos, setVideos] = useState([]);
@@ -20,7 +20,10 @@ function App() {
       });
 
       if (response.status === 401) {
-        window.location.href = 'http://localhost:8080/oauth2/authorization/google';
+        // localhostの場合
+        // window.location.href = 'http://localhost:8080/oauth2/authorization/google';
+        // 本番環境の場合
+        window.location.href = `${process.env.REACT_APP_API_URL}/oauth2/authorization/google`;
         return;
       }
 
