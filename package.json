@@ -43,6 +43,5 @@
   },
   "devDependencies": {
     "gh-pages": "^6.3.0"
-  },
-  "homepage": "https://tamaokishie.github.io/video-frontend"
+  }
 }
